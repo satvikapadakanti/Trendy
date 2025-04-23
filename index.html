@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendyShop - Elegant E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">TrendyShop</div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('products')">Products</a></li>
+                <li><a href="#" onclick="showSection('cart')">Cart (<span id="cart-count">0</span>)</a></li>
+                <li><a href="#" onclick="showSection('login')">Login</a></li>
+                <li><a href="#" onclick="showSection('admin')">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="home" class="section">
+            <div class="hero">
+                <h1>Discover Trendy Fashion</h1>
+                <p>Shop the latest styles at unbeatable prices!</p>
+                <button class="hero-btn" onclick="showSection('products')">Shop Now</button>
+            </div>
+            <div class="featured">
+                <h2>Featured Products</h2>
+                <div class="carousel" id="featured-carousel"></div>
+            </div>
+        </section>
+
+        <section id="products" class="section" style="display: none;">
+            <h2>Our Products</h2>
+            <div class="filter">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="men">Men</option>
+                    <option value="women">Women</option>
+                </select>
+            </div>
+            <div class="product-grid" id="product-grid"></div>
+        </section>
+
+        <section id="product-detail" class="section" style="display: none;"></section>
+
+        <section id="cart" class="section" style="display: none;">
+            <h2>Your Cart</h2>
+            <table class="cart-table" id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </section>
+
+        <section id="login" class="section" style="display: none;">
+            <div class="login-form">
+                <h2>Login</h2>
+                <input type="text" placeholder="Username" id="username">
+                <input type="password" placeholder="Password" id="password">
+                <button onclick="login()">Login</button>
+                <p>Not registered? <a href="#" onclick="showSection('register')">Register here</a></p>
+            </div>
+        </section>
+
+        <section id="register" class="section" style="display: none;">
+            <div class="login-form">
+                <h2>Register</h2>
+                <input type="text" placeholder="Username" id="username-reg">
+                <input type="email" placeholder="Email" id="email">
+                <input type="password" placeholder="Password" id="password-reg">
+                <button onclick="register()">Register</button>
+                <p>Already registered? <a href="#" onclick="showSection('login')">Login here</a></p>
+            </div>
+        </section>
+
+        <section id="admin" class="section" style="display: none;">
+            <div class="admin-form">
+                <h2>Add Product</h2>
+                <input type="text" placeholder="Product Name" id="product-name">
+                <input type="number" placeholder="Price (INR)" id="product-price">
+                <input type="text" placeholder="Category" id="product-category">
+                <input type="text" placeholder="Image URL" id="product-image">
+                <input type="text" placeholder="Description" id="product-description">
+                <input type="text" placeholder="Sizes (comma-separated)" id="product-sizes">
+                <button onclick="addProduct()">Add Product</button>
+            </div>
+            <h2>Orders</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-table"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 TrendyShop. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
